@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GraphQL.Net;
@@ -32,6 +32,66 @@ namespace Tests
         [Test] public void ByteArrayParameter() => GenericTests.ByteArrayParameter(MemContext.CreateDefaultContext());
         [Test] public void ChildListFieldWithParameters() => GenericTests.ChildListFieldWithParameters(MemContext.CreateDefaultContext());
         [Test] public void ChildFieldWithParameters() => GenericTests.ChildFieldWithParameters(MemContext.CreateDefaultContext());
+        
+        [Test]
+        public static void StarWarsBasicQueryHero() =>
+            StarWarsTests.BasicQueryHero(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void StarWarsBasicQueryHeroWithIdAndFriends() =>
+            StarWarsTests.BasicQueryHeroWithIdAndFriends(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void StarWarsBasicQueryHeroWithIdAndFriendsOfFriends() =>
+            StarWarsTests.BasicQueryHeroWithFriendsOfFriends(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void StarWarsBasicQueryFetchLuke() =>
+            StarWarsTests.BasicQueryFetchLuke(MemContext.CreateDefaultContext());
+        
+        [Test]
+        public static void StarWarsFragmentsDuplicatedContent() =>
+            StarWarsTests.FragmentsDuplicatedContent(MemContext.CreateDefaultContext());
+        
+        [Test]
+        public static void StarWarsFragmentsAvoidDuplicatedContent() =>
+            StarWarsTests.FragmentsAvoidDuplicatedContent(MemContext.CreateDefaultContext());
+        
+        [Test]
+        public static void StarWarsFragmentsInlineFragments() =>
+            StarWarsTests.FragmentsInlineFragments(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void StarWarsTypenameR2Droid() =>
+            StarWarsTests.TypenameR2Droid(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void StarWarsTypenameLukeHuman() =>
+            StarWarsTests.TypenameLukeHuman(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void StarWarsIntrospectionDroidType() =>
+            StarWarsTests.IntrospectionDroidType(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void StarWarsIntrospectionDroidTypeKind() =>
+            StarWarsTests.IntrospectionDroidTypeKind(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void StarWarsIntrospectionCharacterInterface() =>
+            StarWarsTests.IntrospectionCharacterInterface(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void UnionTypeStarship() =>
+            StarWarsTests.UnionTypeStarship(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void UnionTypeHuman() =>
+            StarWarsTests.UnionTypeHuman(MemContext.CreateDefaultContext());
+
+        [Test]
+        public static void UnionTypeDroid() =>
+            StarWarsTests.UnionTypeDroid(MemContext.CreateDefaultContext());
         [Test] public static void Fragements() => GenericTests.Fragements(MemContext.CreateDefaultContext());
         [Test] public static void InlineFragements() => GenericTests.InlineFragements(MemContext.CreateDefaultContext());
         [Test] public static void InlineFragementWithListField() => GenericTests.InlineFragementWithListField(MemContext.CreateDefaultContext());
@@ -47,6 +107,7 @@ namespace Tests
         public void AddAllFields()
         {
             var schema = GraphQL<MemContext>.CreateDefaultSchema(() => new MemContext());
+            schema.AddType<NullRef>().AddAllFields();
             schema.AddType<User>().AddAllFields();
             schema.AddType<Account>().AddAllFields();
             schema.AddField("user", new { id = 0 }, (db, args) => db.Users.AsQueryable().FirstOrDefault(u => u.Id == args.id));
