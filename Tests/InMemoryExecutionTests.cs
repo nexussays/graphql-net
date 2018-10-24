@@ -92,15 +92,7 @@ namespace Tests
         [Test]
         public static void UnionTypeDroid() =>
             StarWarsTests.UnionTypeDroid(MemContext.CreateDefaultContext());
-        [Test] public static void Fragements() => GenericTests.Fragements(MemContext.CreateDefaultContext());
-        [Test] public static void InlineFragements() => GenericTests.InlineFragements(MemContext.CreateDefaultContext());
-        [Test] public static void InlineFragementWithListField() => GenericTests.InlineFragementWithListField(MemContext.CreateDefaultContext());
-        [Test] public static void FragementWithMultiLevelInheritance() => GenericTests.FragementWithMultiLevelInheritance(MemContext.CreateDefaultContext());
-        [Test] public static void InlineFragementWithoutTypenameField() => GenericTests.InlineFragementWithoutTypenameField(MemContext.CreateDefaultContext());
-        [Test] public static void FragementWithoutTypenameField() => GenericTests.FragementWithoutTypenameField(MemContext.CreateDefaultContext());
-        [Test] public static void InlineFragementWithoutTypenameFieldWithoutOtherFields() => GenericTests.InlineFragementWithoutTypenameFieldWithoutOtherFields(MemContext.CreateDefaultContext());
-        [Test] public static void FragementWithMultipleTypenameFields() => GenericTests.FragementWithMultipleTypenameFields(MemContext.CreateDefaultContext());
-        [Test] public static void FragementWithMultipleTypenameFieldsMixedWithInlineFragment() => GenericTests.FragementWithMultipleTypenameFieldsMixedWithInlineFragment(MemContext.CreateDefaultContext());
+
         [Test] public void LookupSingleEntityError() => GenericTests.LookupSingleEntityError(MemContext.CreateDefaultContext());
 
         [Test]

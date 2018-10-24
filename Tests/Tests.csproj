@@ -38,7 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="FSharp.Core, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.4.5.2\lib\net45\FSharp.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +78,10 @@
     <ProjectReference Include="..\GraphQL.Net\GraphQL.Net.csproj">
       <Project>{530742A1-10D8-4255-837D-43D57B00EE50}</Project>
       <Name>GraphQL.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GraphQL.Parser\GraphQL.Parser.fsproj">
+      <Project>{d5f65a61-8c03-46f1-86aa-7b6da4be25f5}</Project>
+      <Name>GraphQL.Parser</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
